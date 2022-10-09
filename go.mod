@@ -1,4 +1,4 @@
-module github.com/novatrixtech/myvaccinewallet/server-polygon
+module github.com/novatrixtech/myvaccinewallet
 
 go 1.19
 
