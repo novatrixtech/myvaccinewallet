@@ -21,6 +21,7 @@ import (
 var RequestMap = make(map[string]any)
 
 func main() {
+
 	http.HandleFunc("/api/sign-in", GetAuthRequest)
 	http.HandleFunc("/api/callback", Callback)
 	port := ":8080"
@@ -41,10 +42,8 @@ func GetAuthRequest(w http.ResponseWriter, r *http.Request) {
 
 	uri := fmt.Sprintf("%s%s?sessionId=%s", rURL, CallbackURL, strconv.Itoa(sessionID))
 
-	var request protocol.AuthorizationRequestMessage
-
 	// Generate request for basic authentication
-	request = auth.CreateAuthorizationRequestWithMessage("test flow", "message to sign", Audience, uri)
+	request := auth.CreateAuthorizationRequestWithMessage("test flow", "message to sign", Audience, uri)
 
 	request.ID = "7f38a193-0918-4a48-9fac-36adfdb8b542"
 	request.ThreadID = "7f38a193-0918-4a48-9fac-36adfdb8b542"
