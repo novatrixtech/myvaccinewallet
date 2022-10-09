@@ -35,7 +35,7 @@ func main() {
 func GetAuthRequest(w http.ResponseWriter, r *http.Request) {
 
 	// Audience is verifier id
-	rURL := "myvaccinewallet.herokuapp.com"
+	rURL := "https://myvaccinewallet.herokuapp.com"
 	sessionID := 1
 	CallbackURL := "/api/callback"
 	Audience := "1125GJqgw6YEsKFwj63GY87MMxPL9kwDKxPUiwMLNZ"
