@@ -21,7 +21,12 @@ import (
 var RequestMap = make(map[string]any)
 
 func main() {
-
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		log.Println("****** OK ******")
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		w.Write([]byte("hello"))
+	})
 	http.HandleFunc("/api/sign-in", GetAuthRequest)
 	http.HandleFunc("/api/callback", Callback)
 	port := ":8080"
