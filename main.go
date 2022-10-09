@@ -25,7 +25,7 @@ func main() {
 	http.HandleFunc("/api/callback", Callback)
 	port := ":8080"
 	if len(os.Getenv("PORT")) > 1 {
-		port = os.Getenv("PORT")
+		port = ":" + os.Getenv("PORT")
 	}
 	http.ListenAndServe(port, nil)
 }
